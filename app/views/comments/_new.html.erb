@@ -1,0 +1,12 @@
+<%= form_for @comment do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %><br>
+  <% if @question %>
+    <%= f.hidden_field :commentable_id, value: @question.id %>
+    <%= f.hidden_field :commentable_type, value: 'Question' %>
+  <% elsif @answer %>
+    <%= f.hidden_field :commentable_id, value: @answer.id %>
+    <%= f.hidden_field :commentable_type, value: 'Answer' %>
+  <% end %>
+  <%= submit_tag "Write comment" %>
+<% end %>

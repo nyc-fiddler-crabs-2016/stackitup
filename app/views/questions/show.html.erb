@@ -2,3 +2,7 @@
   <h2><%= @question.title %></h2>
   <p><%= @question.body %></p>
 </section>
+
+<%= render 'comments/new' %>
+
+<%= render @comments %>

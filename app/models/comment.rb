@@ -4,4 +4,7 @@ class Comment < ActiveRecord::Base
 
   validates :body, :user, presence: true
 
+  def writer
+    self.user.username
+  end
 end
