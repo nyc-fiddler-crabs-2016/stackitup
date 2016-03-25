@@ -1,8 +1,19 @@
+<% if @question.is_owned_by(current_user) %>
+  <%= link_to "Edit", edit_question_path, class: "button" %>
+<% end %>
 <section>
-  <h2><%= @question.title %></h2>
+  <h2><%= @question.title %><span class="right light small"><%= @question.write_vote_count %> Votes | <%= @question.write_comment_count %> comments</span></h2>
+  <P class="light"><%= @question.write_date %> by <%= link_to @question.write_user_name, user_path(@question.user) %>  </P>
   <p><%= @question.body %></p>
 </section>
 
 <%= render 'comments/new' %>
 
 <%= render @comments %>
+
+<% if current_user %>
+<section>
+  <%= render partial: 'answers/new'  %>
+</section>
+<% end %>
+  <%= render @question.answers  %>
