@@ -2,3 +2,10 @@
   <h2><%= @question.title %></h2>
   <p><%= @question.body %></p>
 </section>
+
+<% if current_user %>
+<section>
+  <%= render partial: 'answers/new'  %>
+</section>
+<% end %>
+  <%= render @question.answers  %>
