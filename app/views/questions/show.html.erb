@@ -7,7 +7,11 @@
   <h3><%= @question.title %><span class="right light small"><%= @question.write_vote_count %> Votes | <%= @question.write_comment_count %> comments</span></h3>
   <P class="light"><%= @question.write_date %> by <%= link_to @question.write_user_name, user_path(@question.user) %>  </P>
   <p><%= @question.body %></p>
+  <%= link_to "Create comment", {controller:"comments", action:"new", question: @question}%>
 </section>
+
+
+<%= render @comments %>
 
 <% if current_user %>
 <section>

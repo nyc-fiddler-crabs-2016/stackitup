@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :questions
   resources :answers
+  resources :comments, only: [:new, :create, :destroy]
 
   post 'vote_question' => 'questions#vote'
   post 'vote_answer' => 'answers#vote'

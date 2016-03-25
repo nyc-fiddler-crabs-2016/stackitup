@@ -3,4 +3,6 @@
   <%= link_to "DOWN", vote_answer_path(vote: {value: -1, answer: answer}), method: :post %>
   <p>Written by: <%= link_to answer.user.username, user_path(answer.user) %><%= answer.write_vote_count %> Votes | <%= answer.write_comment_count %> comments</span></h3></p>
   <p><%= answer.body %></p>
+  <%= link_to "Create comment", {controller:"comments", action:"new", answer: answer}%>
+  <%= render answer.comments %>
 </section>
