@@ -271,7 +271,7 @@ form select {
 form textarea{
     height:100px;
 }
-form .button {
+form .button, form input[type="submit"] {
     background: #E27575;
     border: none;
     padding: 10px 25px 10px 25px;
@@ -281,10 +281,7 @@ form .button {
     text-shadow: 1px 1px 1px #9E3F3F;
     cursor: pointer;
 }
-form .button:hover {
+form .button:hover, form input[type="submit"]:hover {
     background: #CF7A7A
 }
 
-section {
-  background-color: #fff;
-}
