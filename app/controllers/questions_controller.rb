@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
  skip_before_action :logged_in?, only: [:index, :show]
+ include VotesHelper
 
   def new
     @question = Question.new
@@ -38,10 +39,25 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def vote
+    vote = check_vote(vote_params)
+    if vote.save
+      redirect_to question_path(params[:vote][:question])
+    else
+
+      flash[:notice] =  "Sorry, your vote doesn't count"
+      redirect_to question_path(params[:vote][:question])
+    end
+  end
+
   private
 
   def question_params
     params.require(:question).permit(:title, :body)
+  end
+
+  def vote_params
+    params.require(:vote).permit(:value).merge(user: current_user, voteable_id: params[:vote][:question], voteable_type: "Question")
   end
 
 

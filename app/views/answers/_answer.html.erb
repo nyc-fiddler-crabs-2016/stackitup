@@ -1,4 +1,4 @@
 <section>
-  <p>Written by: <%= answer.user.username %></p>
+  <p>Written by: <%= link_to answer.user.username, user_path(answer.user) %></p>
   <p><%= answer.body %></p>
 </section>
