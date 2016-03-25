@@ -1,7 +1,7 @@
 module VotesHelper
 
   def check_vote(vote_params)
-    if vote = Vote.find_by(user: current_user, voteable_id: vote_params[:voteable_id], voteable_type: "Question")
+    if vote = Vote.find_by(vote_params.except(:value))
       vote.assign_attributes(vote_params)
       vote
     else

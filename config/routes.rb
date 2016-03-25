@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :answers
 
   post 'vote_question' => 'questions#vote'
+  post 'vote_answer' => 'answers#vote'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
