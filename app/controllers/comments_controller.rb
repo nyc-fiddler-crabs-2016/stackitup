@@ -1,16 +1,33 @@
 class CommentsController < ApplicationController
   def new
+    @comment = Comment.new
+    if params[:question]
+      @question = Question.find_by(id: params[:question])
+    elsif params[:answer]
+      @answer = Answer.find_by(id: params[:answer])
+    end
   end
 
   def create
-    @question = Question.find_by(id: params[:comment][:commentable_id])
+    @question = Question.find_by(id: params[:comment][:question_id])
+    @answer = Answer.find_by(id: params[:comment][:answer_id])
     @comment = Comment.new(comment_params)
-    if @comment.save
-      flash[:notice] = "Comment created"
-      redirect_to question_path(@question)
-    else
-      flash[:notice] = "Invalid Comment"
-      redirect_to question_path(@question)
+    if @question
+      if @comment.save
+        flash[:notice] = "Comment created"
+        redirect_to question_path(@question)
+      else
+        flash[:notice] = "Invalid Comment"
+        redirect_to question_path(@question)
+      end
+    elsif @answer
+      if @comment.save
+        flash[:notice] = "Comment created"
+        redirect_to question_path(@answer.question.id)
+      else
+        flash[:notice] = "Invalid Comment"
+        redirect_to question_path(@answer.question.id)
+      end
     end
   end
 
