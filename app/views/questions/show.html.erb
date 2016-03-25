@@ -8,14 +8,18 @@
   <P class="light"><%= @question.write_date %> by <%= link_to @question.write_user_name, user_path(@question.user) %>  </P>
   <p><%= @question.body %></p>
   <%= link_to "Create comment", {controller:"comments", action:"new", question: @question}%>
+
+  <%= render @comments %>
 </section>
 
+ <%= render @question.answers  %>
 
-<%= render @comments %>
+
+
 
 <% if current_user %>
 <section>
   <%= render partial: 'answers/new'  %>
 </section>
 <% end %>
-  <%= render @question.answers  %>
+

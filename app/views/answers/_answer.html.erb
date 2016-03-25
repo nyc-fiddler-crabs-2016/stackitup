@@ -1,7 +1,6 @@
-<section>
-  <%= link_to "UP", vote_answer_path(vote: {value: 1, answer: answer}), method: :post %>
-  <%= link_to "DOWN", vote_answer_path(vote: {value: -1, answer: answer}), method: :post %>
-  <p>Written by: <%= link_to answer.user.username, user_path(answer.user) %><%= answer.write_vote_count %> Votes | <%= answer.write_comment_count %> comments</span></h3></p>
+<section class="answers">
+  <p class="small light">Written by: <%= link_to answer.user.username, user_path(answer.user) %><span class="right"><%= link_to image_tag("up.png", size: '20x20'), vote_answer_path(vote: {value: 1, answer: answer}), method: :post, class: "up" %>
+  <%= link_to image_tag("down.png", size: '20x28'), vote_answer_path(vote: {value: -1, answer: answer}), method: :post %><%= answer.write_vote_count %> Votes | <%= answer.write_comment_count %> comments</span></h3></p>
   <p><%= answer.body %></p>
   <%= link_to "Create comment", {controller:"comments", action:"new", answer: answer}%>
   <%= render answer.comments %>
