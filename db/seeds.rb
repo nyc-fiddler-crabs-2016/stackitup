@@ -6,7 +6,9 @@ comments_per_question = 2
 comments_per_answer   = 2
 
 votes_per_question    = (1..10).to_a
-votes_per_comment     = (1..10).to_a
+votes_per_answer     = (1..10).to_a
+
+values = [1,-1]
 
 
 User.create(username: 'joe', email: 'joe@joe.com', password: 'pw', description: 'I am a ruby ninja and OO disciple who likes red wine and ASP.net')
@@ -24,12 +26,46 @@ users.each do |user|
                                 body: Faker::Hipster.paragraph(4),
                                 user: user
                                 )
-    answers_per_question.times do
-      Answer.create(body: Faker::Hipster.paragraph(4),
-                    user: user,
-                    question: question
+
+    comments_per_question.times do
+      Comment.create(user: users.sample,
+                     body: Faker::Hipster.paragraph(2),
+                     commentable_id: question.id,
+                     commentable_type: 'Question'
                      )
     end
+
+    votes_per_question.sample.times do
+      Vote.create(user: users.sample,
+                  value: values.sample,
+                  voteable_id: question.id,
+                  voteable_type: 'Question'
+                  )
+    end
+
+    answers_per_question.times do
+      answer = Answer.create(body: Faker::Hipster.paragraph(4),
+                             user: user,
+                             question: question
+                             )
+
+      comments_per_answer.times do
+        Comment.create(user: users.sample,
+                       body: Faker::Hipster.paragraph(2),
+                       commentable_id: answer.id,
+                       commentable_type: 'Answer'
+            )
+      end
+
+      votes_per_answer.sample.times do
+        Vote.create(user: users.sample,
+                    value: values.sample,
+                    voteable_id: answer.id,
+                    voteable_type: 'Answer'
+                    )
+      end
+    end
+
   end
 end
 
