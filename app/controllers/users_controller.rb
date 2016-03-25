@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(current_user)
     else
-      flash[:notice] = "There was a problem with your informatoin, please try again"
+      flash[:notice] = "There was a problem with your information, please try again"
       render new_user_path
     end
   end
