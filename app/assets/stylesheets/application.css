@@ -17,3 +17,23 @@
 .hide {
   display:none;
 }
+
+.comment {
+  border-top: 1px solid #CFD8DC;
+  padding: 10px;
+}
+
+.comment p {
+  font-size: .9rem;
+  color: #424242;
+}
+
+.answers {
+  background-color: #F5F5F5;
+  margin-left: 20px;
+}
+
+
+.up {
+  background-image: image-url('up.png');
+}

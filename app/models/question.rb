@@ -11,7 +11,7 @@ class Question < ActiveRecord::Base
 
 
   def write_vote_count
-    self.votes.count.to_s
+    self.votes.map {|vote| vote.value}.reduce(:+).to_s
   end
 
   def write_comment_count
