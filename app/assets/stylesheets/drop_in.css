@@ -45,7 +45,6 @@ header nav input[type="submit"] {
 }
 
 main {
-  background-color: #F5F5F5;   /* light gray */
   color: #212121;              /* dark gray */
 }
 
@@ -284,4 +283,8 @@ form .button {
 }
 form .button:hover {
     background: #CF7A7A
+}
+
+section {
+  background-color: #fff;
 }
