@@ -1,4 +1,6 @@
 <section>
   <p>Written by: <%= answer.user.username %></p>
   <p><%= answer.body %></p>
+  <%= link_to "Create comment", {controller:"comments", action:"new", answer: answer}%>
+  <%= render answer.comments %>
 </section>
