@@ -6,3 +6,10 @@
   <P class="light"><%= @question.write_date %> by <%= link_to @question.write_user_name, user_path(@question.user) %>  </P>
   <p><%= @question.body %></p>
 </section>
+
+<% if current_user %>
+<section>
+  <%= render partial: 'answers/new'  %>
+</section>
+<% end %>
+  <%= render @question.answers  %>

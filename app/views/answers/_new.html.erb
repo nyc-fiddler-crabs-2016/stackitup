@@ -1,0 +1,11 @@
+<%= form_for :answers, url: {action: :create, controller: :answers} do |f| %>
+    <div>
+      <%= f.hidden_field :question_id, value: @question.id %>
+      <%= f.label :name, "Your answer" %>
+      <%= f.text_area :body %>
+    </div>
+
+    <div>
+      <%= f.submit 'submit' %>
+    </div>
+<% end %>
