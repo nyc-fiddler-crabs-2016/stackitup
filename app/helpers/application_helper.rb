@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def write_vote_count
+  def vote_count
     self.votes.map {|vote| vote.value}.reduce(:+).to_s
   end
 

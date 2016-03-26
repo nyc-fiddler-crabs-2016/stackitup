@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.all.order(:)
   end
 
   def vote
