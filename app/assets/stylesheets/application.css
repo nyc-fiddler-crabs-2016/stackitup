@@ -41,3 +41,18 @@
 .question-body {
   margin-bottom: 40px;
 }
+
+.tag {
+  height: 20px;
+  display: inline;
+  background-color: #E0F2F1;
+  padding: 6px;
+  margin-right: 20px;
+  font-size: .8rem;
+  color: #00695C;
+
+}
+
+.row {
+  margin: 20px 0px;
+}
