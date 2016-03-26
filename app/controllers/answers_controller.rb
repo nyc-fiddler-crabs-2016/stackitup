@@ -10,14 +10,23 @@ class AnswersController < ApplicationController
       redirect_to question_path(answer.question)
     else
       flash[:notice] = "Something went wrong saving your answer."
-      render 'answers/show'
+      # render 'answers/show'
     end
   end
 
-  def updated
+  def edit
+    question = Question.find(params[:id])
   end
 
-  def edit
+  def update
+    answer = Answer.find(params[:answer][:answer_id])
+    if answer.user == current_user
+      answer.update(answer_params)
+      render partial: 'answers/show'
+      #redirect_to question_path(params[:answer][:question_id])
+    else
+      flash[:notice] = "You cannot update any one else's answers..."
+    end
   end
 
   def destroy
@@ -38,6 +47,10 @@ class AnswersController < ApplicationController
 
   def vote_params
     params.require(:vote).permit(:value).merge(user: current_user, voteable_id: params[:vote][:answer], voteable_type: "Answer")
+  end
+
+  def answer_params
+    params.require(:answer).permit(:body)
   end
 
 end
