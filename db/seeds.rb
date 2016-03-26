@@ -12,10 +12,10 @@ votes_per_answer     = (1..10).to_a
 vote_values = [1,-1]
 
 
-tags = []
+tags = ['javascript', 'html', 'css', 'ruby', 'rails', 'database', 'backend', 'server', 'bootstrap']
 
-tags_total.times do
-  tags << Tag.create(name: Faker::Hacker.abbreviation)
+tags.each do |tag|
+  Tag.create(name: tag)
 end
 
 
@@ -35,9 +35,10 @@ users.each do |user|
                                 user: user
                                 )
 
+    tag_objects = Tag.all.shuffle
     tags_per_question.sample.times do
       QuestionTag.create(question: question,
-                          tag:      tags.sample
+                          tag:     tag_objects.pop
                           )
     end
 
