@@ -7,8 +7,8 @@
     <%= link_to "DOWN", vote_question_path(vote: {value: -1, question: @question}), method: :post %>
     <h3><%= @question.title %><span class="right light small"><%= @question.write_vote_count %> Votes | <%= @question.write_comment_count %> comments</span></h3>
     <P class="light"><%= @question.write_date %> by <%= link_to @question.write_user_name, user_path(@question.user) %>  </P>
-    <p><%= @question.body %></p>
-    <%= render @question.tags %>
+    <p class="row"><%= @question.body %></p>
+    <p><%= render @question.tags %></p>
   </div>
   <div>
     <p><%= link_to "Add comment", {controller:"comments", action:"new", question: @question}%></p>

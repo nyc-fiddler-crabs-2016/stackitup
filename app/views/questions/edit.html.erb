@@ -9,6 +9,11 @@
       <%= f.text_area :body %>
     </div>
 
+    <div>
+      <%= f.label :tag_string, "Tags" %>
+      <%= f.text_field :tag_string, value: @question.tags_as_string %>
+    </div>
+
 
     <div>
       <%= f.submit "Make Changes" %>
