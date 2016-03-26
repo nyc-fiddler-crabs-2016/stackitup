@@ -79,7 +79,7 @@ users.each do |user|
                     )
       end
     end
-
+  end
 end
 
 
