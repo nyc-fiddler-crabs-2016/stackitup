@@ -42,6 +42,19 @@
   margin-bottom: 40px;
 }
 
+#edit-answer {
+  display: none;
+}
+
+.answer-edit-form {
+  border: initial;
+  margin: initial;
+  width: initial;
+  max-width: initial;
+  background: initial;
+  padding: initial;
+}
+
 .tag {
   height: 20px;
   display: inline;
