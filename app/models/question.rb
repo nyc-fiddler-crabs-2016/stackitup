@@ -12,14 +12,18 @@ class Question < ActiveRecord::Base
   validates :title, :body, :user, presence: true
 
   def set_tags(tag_string)
-    tag_string.split(",").each do |tag|
-      tag.downcase.chomp.strip
-      self.tags << Tag.find_or_create_by(name: tag)
+    tag_string.split(",").each do |tag_name|
+      tag_str = tag_name.downcase.chomp.strip
+      self.tags << Tag.find_or_create_by(name: tag_str) unless self.tags.any? { |tag_obj| tag_obj.name == tag_str }
     end
   end
 
   def tag_string
     @tag_string
+  end
+
+  def tags_as_string
+    self.tags.map { |tag| tag.name }.join(", ")
   end
 
 

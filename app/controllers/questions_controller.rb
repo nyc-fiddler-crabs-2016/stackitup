@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     redirect_to "/" unless @question.is_owned_by(current_user)
     if @question.update_attributes(question_params)
+      @question.set_tags(@question.tag_string)
       redirect_to question_path
     else
       flash[:notice] = "Please try again"
