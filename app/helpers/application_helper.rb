@@ -19,4 +19,5 @@ module ApplicationHelper
   def is_owned_by(current_user)
     current_user == self.user
   end
+
 end
