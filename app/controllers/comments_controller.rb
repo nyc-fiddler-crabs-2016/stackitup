@@ -32,6 +32,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find_by(id: params[:id])
+    if current_user == @comment.user
+      @comment.destroy
+      redirect_to :back
+    else 
+      flash[:notice] = "You cannot delete another's comment."
+      redirect_to :back
+    end
   end
 
   private
