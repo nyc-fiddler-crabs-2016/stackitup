@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-      @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.find_by(id: params[:id])
     if current_user == @comment.user
       @comment.destroy
       redirect_to :back

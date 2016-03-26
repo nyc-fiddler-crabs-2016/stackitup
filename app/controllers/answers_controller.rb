@@ -14,6 +14,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show
+    @answer = Answer.find(params[:id])
+  end
+
   def edit
     question = Question.find(params[:id])
   end
@@ -22,8 +26,8 @@ class AnswersController < ApplicationController
     answer = Answer.find(params[:answer][:answer_id])
     if answer.user == current_user
       answer.update(answer_params)
-      render partial: 'answers/show'
-      #redirect_to question_path(params[:answer][:question_id])
+      answer.body.to_json
+      # format.json { render json: answer.body}
     else
       flash[:notice] = "You cannot update any one else's answers..."
     end
