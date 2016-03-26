@@ -1,4 +1,4 @@
 <div class="comment">
   <p><%= comment.body %></p>
-  <p>By: <%= comment.writer%></p>
+  <p class="small light">By: <%=  link_to comment.writer, user_path(comment.writer)%></p>
 </div>

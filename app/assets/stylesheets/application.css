@@ -20,7 +20,7 @@
 
 .comment {
   border-top: 1px solid #CFD8DC;
-  padding: 10px;
+  padding: 5px 0px 5px 15px;
 }
 
 .comment p {
@@ -36,4 +36,8 @@
 
 .up {
   background-image: image-url('up.png');
+}
+
+.question-body {
+  margin-bottom: 40px;
 }

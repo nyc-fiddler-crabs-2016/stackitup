@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers
   resources :comments, only: [:new, :create, :destroy]
+  resources :tags
 
   post 'vote_question' => 'questions#vote'
   post 'vote_answer' => 'answers#vote'
