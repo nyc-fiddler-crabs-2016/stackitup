@@ -8,8 +8,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(question_params.merge(user: current_user))
+    @question = Question.new(question_params.merge(user: current_user))
     if @question.save
+      @question.set_tags(@question.tag_string)
       redirect_to question_path(@question)
     else
       flash[:notice] = "You need to fill out both fields. Please try again"
@@ -24,6 +25,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     redirect_to "/" unless @question.is_owned_by(current_user)
     if @question.update_attributes(question_params)
+      @question.set_tags(@question.tag_string)
       redirect_to question_path
     else
       flash[:notice] = "Please try again"
@@ -54,7 +56,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, :tag_string)
   end
 
   def vote_params

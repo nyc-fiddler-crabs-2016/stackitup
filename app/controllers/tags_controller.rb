@@ -9,7 +9,8 @@ class TagsController < ApplicationController
   end
 
   def show
-
+    # binding.pry
+    @tag = Tag.find(params[:id])
   end
 
 end
