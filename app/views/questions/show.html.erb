@@ -11,7 +11,7 @@
     <p><%= render @question.tags %></p>
   </div>
   <div>
-    <p><%= link_to "Add comment", {controller:"comments", action:"new", question: @question}%></p>
+    <p class="add-comment-link"><%= link_to "Add comment", {controller:"comments", action:"new", question: @question}%></p>
     <%= render @comments %>
   </div>
 </section>
