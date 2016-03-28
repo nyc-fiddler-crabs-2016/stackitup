@@ -4,7 +4,7 @@
     <span class="right"><%= link_to image_tag("up.png", size: '20x20'), vote_answer_path(vote: {value: 1, answer: answer}), method: :post, class: "up" %>
 
       <%= link_to image_tag("down.png", size: '20x28'), vote_answer_path(vote: {value: -1, answer: answer}), method: :post %>
-      <%= answer.write_vote_count %> Votes | <%= answer.write_comment_count %> comments</span>
+      <%= answer.vote_count %> Votes | <%= answer.write_comment_count %> comments</span>
 
 
     <p class="small light" id="edit-answer-link">

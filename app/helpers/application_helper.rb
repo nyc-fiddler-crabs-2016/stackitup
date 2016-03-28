@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def write_vote_count
+  def vote_count
     self.votes.map {|vote| vote.value}.reduce(:+).to_s
   end
 
@@ -19,4 +19,5 @@ module ApplicationHelper
   def is_owned_by(current_user)
     current_user == self.user
   end
+
 end
