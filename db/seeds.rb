@@ -31,7 +31,7 @@ users = User.all
 users.each do |user|
   questions_per_user.times do
     question = Question.create(title: Faker::Hacker.say_something_smart,
-                                body: Faker::Hipster.paragraph(4),
+                                body: Faker::Hipster.paragraph(10),
                                 user: user
                                 )
 

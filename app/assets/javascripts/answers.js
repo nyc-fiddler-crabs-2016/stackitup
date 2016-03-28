@@ -9,8 +9,6 @@ $( document ).ready(function() {
   });
 
   $('.answer-edit-form').on('ajax:success', function(e, data, status, xhr) {
-    var r = $.parseJSON(data);
-    debugger
     $('#edit-answer').hide();
     $('#answer').show();
     $('#answer').html(xhr.responseText);
