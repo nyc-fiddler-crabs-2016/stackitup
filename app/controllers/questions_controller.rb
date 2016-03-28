@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = sort_by_votes(Question.all)
   end
 
   def vote
@@ -61,6 +61,10 @@ class QuestionsController < ApplicationController
 
   def vote_params
     params.require(:vote).permit(:value).merge(user: current_user, voteable_id: params[:vote][:question], voteable_type: "Question")
+  end
+
+  def sort_by_votes(collection)
+    collection.sort_by { |obj| obj.vote_count }.reverse
   end
 
 

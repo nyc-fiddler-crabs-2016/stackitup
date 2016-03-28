@@ -9,7 +9,7 @@ class Answer < ActiveRecord::Base
   validates :body, :user, :question, presence: true
 
 
-  def write_vote_count
+  def vote_count
     self.votes.map {|vote| vote.value}.reduce(:+).to_s
   end
 
