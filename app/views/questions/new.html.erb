@@ -1,0 +1,21 @@
+<%= form_for @question, url: {action: 'create'} do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+    <div>
+      <%= f.label :tag_string %>
+      <%= f.text_field :tag_string %>
+    </div>
+
+
+    <div>
+      <%= f.submit "Submit" %>
+    </div>
+<% end %>

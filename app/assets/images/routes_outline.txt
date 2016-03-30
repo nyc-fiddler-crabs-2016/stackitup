@@ -1,0 +1,38 @@
+  • Users
+  ⁃ new
+  ⁃ create
+  ⁃ show
+  ⁃ edit
+  ⁃ update
+  ⁃ destroy
+  • sessions
+  ⁃ new
+  ⁃ create
+  ⁃ destroy
+
+
+
+  • questions
+  ⁃ new
+  ⁃ create
+  ⁃ edit
+  ⁃ update
+  ⁃ show
+  ⁃ index (app main page)
+  • Answers
+  ⁃ new
+  ⁃ create
+  ⁃ destroy
+  ⁃ update
+  ⁃ edit
+  • comments
+  ⁃ new
+  ⁃ create
+  ⁃ destroy
+  • votes
+  ⁃ create
+  ⁃ update
+  ⁃ destroy
+  • tags
+  ⁃ new
+  ⁃ create

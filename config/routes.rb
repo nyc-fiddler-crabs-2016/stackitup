@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  root 'questions#index'
+
+  delete 'logout' => 'sessions#destroy'
+
+  resources :users
+  resources :sessions
+  resources :questions
+  resources :answers
+  resources :comments, only: [:new, :create, :destroy]
+  resources :tags
+
+  post 'vote_question' => 'questions#vote'
+  post 'vote_answer' => 'answers#vote'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

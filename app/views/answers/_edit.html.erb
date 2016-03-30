@@ -1,0 +1,9 @@
+<%= form_for answer, remote: true, url: {action: :update, controller: :answers},:html => {:class => "answer-edit-form"} do |f| %>
+      <%= f.hidden_field :question_id, value: @question.id %>
+      <%= f.hidden_field :answer_id, value: answer.id %>
+      <%= f.text_area :body %>
+
+    <div>
+      <%= f.submit 'Update answer' %>
+    </div>
+<% end %>

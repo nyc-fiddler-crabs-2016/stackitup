@@ -1,0 +1,5 @@
+<section>
+  <h3><%= link_to question.title, question_path(question) %><span class="right light small"><%= question.vote_count %> Votes | <%= question.write_comment_count %> comments</span></h3>
+  <P class="light small"><%= question.write_date %> by <%= link_to question.write_user_name, user_path(question.user) %> </P>
+   <p><%= render question.tags %></p>
+</section>

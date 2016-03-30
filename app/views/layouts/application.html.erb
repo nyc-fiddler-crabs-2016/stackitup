@@ -7,8 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<header>
+  <nav>
+   <ul>
+    <li><a href="/">Home</a></li>
+    <% if current_user %>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <li><%= link_to "My Stuff", user_path(current_user) %></li>
+    <% else %>
+      <li><%= link_to "Login", new_session_path %></li>
+      <li><%= link_to "Signup", new_user_path %></li>
+    <% end %>
+  </ul>
+  </nav>
+</header>
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<main>
+  <%= yield %>
+</main>
 </body>
 </html>
+
